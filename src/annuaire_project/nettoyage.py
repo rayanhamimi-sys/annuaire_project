@@ -1,6 +1,7 @@
 from typing import Any
 
 import pandas as pd
+
 from annuaire_project.config import (
     COLUMNS,
     DEPARTMENT_COLUMN,

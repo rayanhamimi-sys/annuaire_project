@@ -1,6 +1,7 @@
 from typing import Any
 
 import requests
+
 from annuaire_project.config import API_URL, MAX_RECORDS, PAGE_SIZE
 
 

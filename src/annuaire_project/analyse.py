@@ -1,4 +1,5 @@
 import pandas as pd
+
 from annuaire_project.config import (
     DEPARTMENT_COLUMN,
     OPENING_DATE_COLUMN,
