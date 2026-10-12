@@ -3,8 +3,8 @@ API_URL = (
     "catalog/datasets/fr-en-annuaire-education/records"
 )
 
-PAGE_SIZE = 100
-MAX_RECORDS = 3000
+LIMIT = 100
+MAX_OFFSET = 3000
 
 COLUMNS = [
     "identifiant_de_l_etablissement",
@@ -29,3 +29,6 @@ OPENING_DATE_COLUMN = "date_ouverture"
 YEAR_COLUMN = "annee"
 
 TOP_DEPARTMENTS = 10
+
+MAX_RECORDS: int = 3_000
+PAGE_SIZE: int = 100
