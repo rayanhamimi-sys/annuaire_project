@@ -1,0 +1,25 @@
+{
+  "methode": "optimise",
+  "limite": null,
+  "duree_secondes": 4.5098,
+  "pic_memoire_mio": 134.71,
+  "total_ouverts": 1940295,
+  "par_departement": {
+    "Bas-Rhin": 121123,
+    "Bouches-du-Rhône": 121250,
+    "Drôme": 121313,
+    "Finistère": 121448,
+    "Gironde": 121187,
+    "Haute-Garonne": 120699,
+    "Hauts-de-Seine": 121536,
+    "Hérault": 121288,
+    "Isère": 121438,
+    "La Réunion": 121389,
+    "Loire-Atlantique": 121611,
+    "Nord": 121023,
+    "Paris": 121656,
+    "Pas-de-Calais": 120709,
+    "Rhône": 121312,
+    "Seine-Maritime": 121313
+  }
+}

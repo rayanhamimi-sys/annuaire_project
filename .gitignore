@@ -12,6 +12,7 @@ wheels/
 #Data files
 data/
 *.csv
+donnees/
 
 #Environment
 .env
