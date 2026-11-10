@@ -16,3 +16,7 @@ donnees/
 
 #Environment
 .env
+.venv/
+__pycache__/
+journaux/
+donnees/brut/

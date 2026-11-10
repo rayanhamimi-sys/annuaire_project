@@ -1,0 +1,329 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <title>Annuaire scolaire | Data Engineering</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b1220;
+      color: #eef4ff;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1160px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid #29394f;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #b8c9e7;
+      text-decoration: none;
+    }
+
+    h1 {
+      font-size: clamp(35px, 5vw, 65px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-top: 45px;
+    }
+
+    .hero {
+      padding: 75px 0 45px;
+    }
+
+    .tag {
+      color: #86b7ff;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .description {
+      color: #b9c8df;
+      font-size: 18px;
+      max-width: 780px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+      background: #172b46;
+    }
+
+    .button.primary {
+      background: #64a4ff;
+      color: #071321;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: #121f32;
+      border: 1px solid #29394f;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .card p {
+      color: #b8c9e0;
+    }
+
+    .dashboard {
+      margin-top: 50px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #29394f;
+      background: #121f32;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 850px;
+      border: 0;
+      background: white;
+    }
+
+    .pending {
+      padding: 45px;
+      text-align: center;
+      color: #b8c9e0;
+    }
+
+    footer {
+      padding: 30px 0;
+      margin-top: 60px;
+      border-top: 1px solid #29394f;
+      color: #b8c9e0;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      iframe {
+        height: 700px;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <strong>🏫 Annuaire scolaire</strong>
+
+      <a href="https://github.com/rayanhamimi-sys/annuaire_project"
+         target="_blank"
+         rel="noopener noreferrer">
+        GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+
+    <div class="tag">
+      Projet Data Engineering
+    </div>
+
+    <h1>
+      Explorer les établissements scolaires français.
+    </h1>
+
+    <p class="description">
+      Un projet complet de traitement des données
+      de l'Éducation nationale : collecte via API,
+      stockage PostgreSQL et visualisation
+      interactive avec Streamlit.
+    </p>
+
+    <div class="buttons">
+
+      <a class="button primary"
+         href="#dashboard">
+        Voir le tableau de bord
+      </a>
+
+      <a class="button"
+         href="https://github.com/rayanhamimi-sys/annuaire_project"
+         target="_blank"
+         rel="noopener noreferrer">
+        Consulter le code
+      </a>
+
+      <a class="button"
+         id="lien-streamlit"
+         href="#dashboard"
+         target="_blank"
+         rel="noopener noreferrer"
+         hidden>
+        Ouvrir Streamlit
+      </a>
+
+    </div>
+
+  </section>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>01 · Ingestion</h3>
+      <p>
+        Récupération des données via API,
+        pagination, gestion des erreurs
+        et sauvegarde CSV.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>02 · PostgreSQL</h3>
+      <p>
+        Chargement des établissements,
+        gestion des identifiants UAI
+        et vérification de l'idempotence.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>03 · Visualisation</h3>
+      <p>
+        Indicateurs, graphiques,
+        filtres interactifs,
+        carte satellite et exports CSV.
+      </p>
+    </div>
+
+  </div>
+
+  <section id="dashboard">
+
+    <h2>Tableau de bord interactif</h2>
+
+    <p class="description">
+      Explorez les établissements par territoire,
+      type, statut ou localisation géographique.
+    </p>
+
+    <div class="dashboard">
+
+      <div id="attente" class="pending">
+        Le tableau de bord sera disponible
+        après son déploiement sur Streamlit.
+      </div>
+
+      <iframe
+        id="streamlit"
+        title="Tableau de bord des établissements"
+        loading="lazy"
+        hidden>
+      </iframe>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    Annuaire scolaire · Projet Python,
+    PostgreSQL et Streamlit ·
+    Données : Éducation nationale
+  </div>
+</footer>
+
+<script>
+  // Après déploiement sur Streamlit Cloud,
+  // coller ici l'URL publique de l'application.
+
+  const APP_URL = "";
+
+  if (
+    /^https:\/\/[a-z0-9-]+\.streamlit\.app\/?$/i.test(APP_URL)
+  ) {
+
+    const url = APP_URL.replace(/\/$/, "");
+
+    const frame = document.getElementById(
+      "streamlit"
+    );
+
+    frame.src = url + "/?embed=true";
+    frame.hidden = false;
+
+    document.getElementById(
+      "attente"
+    ).hidden = true;
+
+    const lien = document.getElementById(
+      "lien-streamlit"
+    );
+
+    lien.href = url;
+    lien.hidden = false;
+  }
+</script>
+
+</body>
+</html>
